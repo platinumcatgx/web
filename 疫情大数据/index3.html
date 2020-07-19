@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>疫情大数据分析</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="static/layui/css/layui.mobile.css">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="static/layui/css/layui.css"/>
+    <script src="static/layui/layui.js"></script>
+    <script src="./js/getData.js"></script>
+<!--  导入地图  -->
+    <script src="js/map/echarts.min.js"></script>
+    <script src="js/map/china.js"></script>
+    <script src="js/mapOption.js"></script>
+</head>
+
+<!--新浪疫情接口https://interface.sina.cn/news/wap/fymap2020_data.d.json-->
+
+<body>
+<!--LOGO-->
+<div class="softeem-logo">
+    <img src="img/logo.jpg" class="softeem-logo-img">
+</div>
+<!--headMsg-->
+<div class="softeem-header">
+    <div>
+        <img src="img/logo.png" class="softeem-logo-img" alt="">
+    </div>
+    <div class="softeem-header-text-title">新型冠状病毒肺炎</div>
+    <div class="softeem-header-text-big-title">疫情实时大数据报告</div>
+    <div class="softeem-header-visitor">共<span>5,135,413,544</span>人访问</div>
+</div>
+<!--LayUI框架 -- Tabs选项卡-->
+<!-- 整个模块的内容区 -->
+<div class="softeem-content">
+    <!-- layui自带样式 -->
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <!-- tab标题  -->
+        <ul class="layui-tab-title">
+            <li class="layui-this">国内疫情</li>
+            <li>鉴真疫情</li>
+            <li>疫情播报</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <!-- 内容区 -->
+                <div class="update-content">
+                    数据更新至<span id="mtime">*</span>
+                </div>
+                <!-- 每一个数据项 -->
+                <div>
+                    <div class="data-content-row">
+                        <!-- 第一组数据 -->
+                        <div class="data-item">
+                            <div class="data-item-title">现有确诊</div>
+                            <div class="data-item-num" style="color: #FF3535;" id="econNum">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addecon-new">*</span></div>
+                        </div>
+
+                        <!-- 第二组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">现有疑似</div>
+                            <div class="data-item-num" id="sustotal" style="color:#A36FFF">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="wjw-addsus-new">*</span></div>
+                        </div>
+                        <!--第三组-->
+                        <div class="data-item">
+                            <div class="data-item-title">境外输入</div>
+                            <div class="data-item-num" id="jwsrNum" style="color:#FE2364">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addjwsr">*</span></div>
+                        </div>
+
+                        <!--第四组-->
+                        <div class="data-item">
+                            <div class="data-item-title">累计确诊</div>
+                            <div class="data-item-num" id="gntotal" style="color:#FF00FF">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addcon-new">*</span></div>
+                        </div>
+
+                        <!--第五组-->
+                        <div class="data-item">
+                            <div class="data-item-title">累计治愈</div>
+                            <div class="data-item-num" id="curetotal" style="color:#FF00FF">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addcutr-new">*</span></div>
+                        </div>
+
+                        <!--第6组-->
+                        <div class="data-item">
+                            <div class="data-item-title">累计死亡</div>
+                            <div class="data-item-num" id="deathtotal" style="color:#4E5465">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="adddeah-new">*</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!--存放地图-->
+                <div class="softeem-map">
+                    <div class="layui-tab layui-tab-brief">
+                        <ui class="layui-tab-title">
+                            <li class="layui-this">现有确诊</li>
+
+                            <li>累计确诊</li>
+                        </ui>
+                        <div class="softeem-map-content">
+<!--                            动态加载地图插件-->
+                            <div class="container"></div>
+                        </div>
+                    </div>
+<!--                    定义地图板块颜色-->
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">>10000</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">1000~9999</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">500~999</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">500~999</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">100~499</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">10~99</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">1~9</span> <br>
+                    </div>
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208"></div>
+                        <span class="softeem-map-num">0</span> <br>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="layui-tab-item">
+                内容3
+            </div>
+
+            <div class="layui-tab-item">
+                内容3
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+        initData();
+        //…
+    });
+</script>
+<script>
+
+</script>
+</body>
+</html>

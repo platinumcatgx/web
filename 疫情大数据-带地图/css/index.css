@@ -1,0 +1,186 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #10AEB5;
+}
+
+.softeem-logo {
+    background-color: #fff;
+    line-height: 50px;
+}
+
+.softeem-logo-img {
+    width: 100px;
+    height: 50px;
+    margin-left: 24px; /*元素与左边框距离*/
+}
+
+.softeem-header {
+    width: 730px;
+    height: 170px;
+    background-image: url(../img/bg-header.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: auto; /*居中*/
+}
+
+.softeem-header-text-title {
+    color: #C4FAFF;
+    margin: 8px 0;
+}
+
+.softeem-header-text-big-title {
+    font-size: 30px;
+    color: #C4FAFF;
+    margin: 8px 0;
+}
+
+.softeem-header-visitor {
+    width: 200px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.softeem-content {
+    width: 770px;
+    background-color: #fff;
+    margin: auto; /*居中*/
+    border-radius: 10px;
+}
+
+.update-content {
+    margin: 10px 5px;
+    color: #999999;
+    font-size: 13px;
+}
+
+.softeem-content-row {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.data-item {
+    display: inline-block; /*一行显示*/
+    width: 30%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.data-item-title {
+    font-size: 16px;
+    font-family: "宋体";
+}
+
+.data-item-num {
+    font-size: 26px;
+}
+
+.data-itme-increment {
+    color: #999999;
+    font-size: 12px;
+}
+
+.softeem-map ul li {
+    width: 45%;
+}
+
+.softeem-map {
+    position: relative;
+
+}
+
+.softeem-map {
+    border: #00FF00;
+    height: 600px;
+}
+
+/* 定义地图的颜色列表*/
+.softeem-map-demo {
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+}
+
+.softeem-map-color-demo {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: black;
+    margin-right: 3px;
+}
+
+.softeem-map-num {
+    font-size: 11px;
+    color: #aaa;
+}
+
+#container {
+    width: 100%;
+    height: 650px;
+}
+
+.layui-tab-item input {
+    display: inline-block;
+    width: 300px;
+}
+
+/*谣言样式*/
+.softeem-rumor-content {
+    width: 750px;
+}
+
+.softeem-rumor-item {
+    width: 750px;
+    margin: 10px;
+}
+
+.softeem-rumor-content-true {
+    height: 76px;
+    width: 18px;
+    border-radius: 2px;
+    background-color: lightcoral;
+    color: white;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.softeem-rumor-out {
+    display: inline-block;
+    height: 76px;
+    width: 500px;
+}
+
+.softeem-runmor-title {
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.softeem-runmor-time {
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.softeem-runmor-desc {
+    font-size: 14px;
+}
+
+.softeem-rumor-img {
+    width: 110px;
+    height: 70px;
+    margin-top: -50px;
+}

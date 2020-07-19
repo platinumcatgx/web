@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<title>快递查询服务</title>
+		   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+		         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		           crossorigin="anonymous"></script>
+		<script type="text/javascript" src="./js/jquery.js"></script>
+		<script type="text/javascript" src="./js/index.js"></script>
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<div class="header">
+			<form>
+				<div class="form-group">
+					<label>快递公司</label>
+					<select id="kuaiDiGongSi" class="form-control">
+						<option value="huitong">百世汇通</option>
+						<option value="youzheng">邮政</option>
+						<option value="yunda">韵达</option>
+						<option value="yuantong">圆通</option>
+						<option value="zhongtong">中通</option>
+						<option value="shentong">申通</option>
+						<option value="liantong">联通</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="kuaiDiDanHao">快递单号</label>
+					<input type="text" class="form-control" id="kuaiDiDanHao" placeholder="快递单号">
+				</div>
+				<input type="button" class="btn btn-default" name="but1" id="submit" value="提交" onclick="javascript:tj()" />
+				<input type="button" class="btn btn-default" id="submit2" value="测试" onclick="javascript:tj2()" />
+			</form>
+			<div>
+				<p class="dataList"></p>
+			</div>
+		</div>
+		<script>
+			function tj() {
+				var gs = $("#kuaiDiGongSi").find("option:selected").val(); //获取选中的项
+				var dh = $('#kuaiDiDanHao').text();
+				if (gs == "liantong") {
+					alert("自己啥快递没电点数???")
+					return;
+				}
+				$.ajax({
+					type: "get",
+					url: "http://www.kuaidi100.com/query?key=a66fb90aff4680e28b30462621cbb7d6&number=" + dh,
+					success: function(res) {
+						// var ajson = JSON.parse(TestJsonCode);
+						// var js = ajson.newslist[0]
+						var js = res.newslist[0]
+						for (var i = 0; i < js.list.length; i++) {
+							$(".dataList").append("<p>" + js.list[i].time + "</p><p>" + js.list[i].content + "</p><br>")
+						}
+					},
+					error: function() {
+						alert("You have a ERROR, but I don't know why")
+					}
+				})
+			}
+			function tj2() {
+				var gs = $("#kuaiDiGongSi").find("option:selected").val(); //获取选中的项
+				var dh = $('#kuaiDiDanHao').text();
+
+				var ajson = JSON.parse(TestJsonCode);
+				var js = ajson.newslist[0]
+				// var js = res.newslist[0]
+				for (var i = 0; i < js.list.length; i++) {
+					$(".dataList").append("<p>" + js.list[i].time + "</p><p>" + js.list[i].content + "</p><br>")
+				}
+			}
+			// $("#submit").click(tj())
+		</script>
+	</body>
+</html>

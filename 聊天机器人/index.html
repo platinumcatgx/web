@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>机器人</title>
+    <script type="text/javascript" src="js/vuejs-2.5.16.js"></script>
+    <script type="text/javascript" src="js/axios-0.18.0.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+</head>
+<body>
+<!--图标-->
+<div class="header">
+    <img src="img/logo.png" width="200px" height="100px">
+    <!--    链接到个人博客-->
+    <div><a href="http://platinumcatgx.github.io" target="_blank">白猫机器人</a></div>
+</div>
+<!--消息部分-->
+<div id="app" class="contianer">
+
+    <div class="showMsg"><!--文本域:显示聊天消息-->
+        <p></p><div class="info"><p></p></div>
+    </div>
+
+    <div class="sendMsg"><!--发送消息-->
+        <textarea id="sendInfo"></textarea>
+    </div>
+    <div class="btn">
+        <button id="sendMessage">发送消息</button>
+        <button id="Client">清空消息</button>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#sendMessage").click(function () {
+            //获取发送消息
+            var msg = $("#sendInfo").val()
+            if (msg == ' ' || msg == '') return;
+            $.ajax({
+                type: "get",
+                url: "http://i.itpk.cn/api.php?",
+                data: "api_key=0597091c626d853c47417f823b04c868&"+"api_secret=zw5q1wexzz0d"+"&question=" + msg,
+                success: function (response) {
+                    //将收到的消息以固定的形式显示
+                    //我的消息
+                    var myMsg = "<p>"+new Date().toLocaleString()+" 我</p>"+"<div class=\"info\" > " + msg + " </div>"
+                    /*if (response.length>45){
+
+                    }else{
+
+                    }*/
+                    //机器人的消息
+                    var robotMsg = "<p>"+new Date().toLocaleString()+" 机器人</p><div class=\"info\"><p>" + response + "</p></div>"
+
+                    //根据class="showMsg"获取该div
+                    $(".showMsg").append(myMsg).append(robotMsg)
+
+                    //设置滚动条默认在最下面,获取DIV滚动的高度
+                    var div = document.getElementsByClassName("showMsg")[0];
+                    //滚动条与顶部的距离
+                    div.scrollTop = div.scrollHeight;
+                },
+                error: (function (error) {
+                    alert("异常" + error)
+                })
+            })
+            $("#sendInfo").val("")
+
+        })
+        //清空按钮的单机事件
+        $("#Client").click(function () {
+            $("#sendInfo").val("")
+        });
+        //清空按钮的回车按下事件
+        $("#Client").keyup(function (event) {
+            alert(event.keyCode)
+            if (event.keyCode == '13') {
+                $("#sendInfo").click()
+            }
+        })
+    })
+
+</script>
+
+
+<script type="text/javascript">
+    var msg = $("#sendMessage").val()
+    new Vue({
+        el: "#app",
+        data: {
+            show: true
+        },
+        methods: {
+            fun1: function () {
+                alert("你好")
+                axios.get().then(function (response) {
+
+                }).error(function (error) {
+
+                })
+            }
+        }
+    });
+</script>
+</html>

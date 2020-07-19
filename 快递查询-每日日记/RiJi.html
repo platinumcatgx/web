@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="js/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="获取今日日记" onclick="javascript:t1()" />
+		<span id="test"></span>
+		<script type="text/javascript">
+			function t1() {
+				$.ajax({
+					type: "get",
+					url: "http://api.tianapi.com/txapi/tiangou/index?key=a66fb90aff4680e28b30462621cbb7d6",
+					success: function(res) {
+						if(res.code!==200)alert("ERROR")
+						var test = res.newslist[0].content
+						console.log(test)
+						$("#test").append("<p>"+test+"</p><hr/>")
+					},
+					error: function() {
+						alert("失败了,我也不知道原因")
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

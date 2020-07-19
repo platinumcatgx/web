@@ -1,0 +1,119 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #10AEB5;
+}
+
+.softeem-logo {
+    background-color: #fff;
+    line-height: 50px;
+}
+
+.softeem-logo-img {
+    height: 50px;
+    width: 100px;
+    margin-left: 30px;
+}
+
+.softeem-header {
+    width: 730px;
+    height: 170px;
+    background-image: url(../img/bg-header.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: auto;
+}
+
+.softeem-header-text-title {
+    color: #C4FAFF;
+    margin: 5px 0;
+}
+
+.softeem-header-text-big-title {
+    font-size: 30px;
+    color: #C4FAFF;
+    margin: 5px 0;
+}
+
+.softeem-header-visitor {
+    width: 200px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.softeem-content {
+    width: 770px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.update-content {
+    margin: 10px 5px;
+    color: #999999;
+    font-size: 13px;
+}
+
+.softeem-content-row {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.data-item {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.data-item-title {
+    font-size: 16px;
+    font-font: "微软雅黑";
+}
+
+.data-item-num {
+    font-size: 26px;
+    color: #9F9F9F;
+}
+
+.data-itme-increment {
+    color: #999999;
+    font-size: 12px;
+}
+
+.softeem-map ul li {
+    width: 45%;
+}
+
+.softeem-map {
+    position: relative;
+}
+
+.softeem-map {
+    border: #9F9F9F;
+    height: 600px;
+}
+
+.softeem-map-demo {
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+}
+.softeem-map-color-demo{
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 2px;
+    margin-right: 3px;
+    background-color: #0C0C0C;
+}
+.softeem-map-num{
+    font-family: 微软雅黑;
+    color: #aaa;
+}

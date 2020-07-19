@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/index.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // JSON转字符串  JSON.stringify()
+    // 字符串转json
+    var JsonObjectTest = JSON.parse(JsonStringTest)
+    var codeMsg;
+    for (var i = 0; i < JsonObjectTest.newslist[0].list.length; i++) {
+        var code = JsonObjectTest.newslist[0].list[i];
+        codeMsg += code.time + "\n" + code.content + "\n"
+    }
+    alert(codeMsg)
+</script>
+</body>
+</html>

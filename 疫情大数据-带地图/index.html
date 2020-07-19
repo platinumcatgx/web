@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>疫情大数据分析</title>
+    <link href="static/layui/css/layui.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/Final.js"></script>
+
+</head>
+<body>
+<!-- 页面头部信息 -->
+<div class="softeem-logo">
+    <img src="img/logo.jpg" class="softeem-logo-img"/>
+</div>
+<!-- 内容头部信息 -->
+<div class="softeem-header">
+    <div>
+        <img src="img/logo.png" class="softeem-logo-img"/>
+    </div>
+    <div class="softeem-header-text-title">新型冠状病毒肺炎</div>
+    <div class="softeem-header-text-big-title">疫情实时大数据报告</div>
+    <div class="softeem-header-visitor">共 <span>5,244,647,974</span> 人次已浏览</div>
+</div>
+<!-- 整个模块的内容区 -->
+<div class="softeem-content">
+    <!-- layui自带样式 -->
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <!-- tab标题  -->
+        <ul id="myul" class="layui-tab-title">
+            <li class="layui-this">国内疫情</li>
+            <li>鉴真疫情</li>
+            <li>疫情播报</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <!-- 内容区 -->
+                <div class="update-content">
+                    数据更新至:<span id="mtime">*</span>
+                </div>
+                <!-- 每一个数据项 -->
+                <div>
+                    <div class="data-content-row">
+                        <!-- 第一组数据 -->
+                        <div class="data-item">
+                            <div class="data-item-title">现有确诊</div>
+                            <div class="data-item-num" style="color: #FF3535;" id="econNum">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addecon-new">*</span></div>
+                        </div>
+
+                        <!-- 第二组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">现有疑似</div>
+                            <div class="data-item-num" id="sustotal" style="color:#A36FFF">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="wjw-addsus-new">*</span></div>
+                        </div>
+                        <!-- 第三组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">境外输入</div>
+                            <div class="data-item-num" id="jwsrNum" style="color:#FE6B23">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addjwsr">*</span></div>
+                        </div>
+                        <!-- 第四组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">累计确诊</div>
+                            <div class="data-item-num" id="gntotal" style="color:#B10000">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addcon_new">*</span></div>
+                        </div>
+                        <!-- 第五组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">累计治愈</div>
+                            <div class="data-item-num" id="curetotal" style="color:#13B593">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="addcure_new">*</span></div>
+                        </div>
+                        <!-- 第六组 -->
+                        <div class="data-item">
+                            <div class="data-item-title">累计死亡</div>
+                            <div class="data-item-num" id="deathtotal" style="color:#4B4B4B">*</div>
+                            <div class="data-itme-increment">昨日
+                                <span style="color:dimgray" id="adddeath_new">*</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 存放地图 -->
+                <div class="softeem-map">
+                    <div class="layui-tab layui-tab-brief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">现有确诊</li>
+                            <li>累计确诊</li>
+                        </ul>
+                        <div class="softeem-map-content">
+                            <!-- 动态加载地图插件 -->
+                            <div id="container">ddd</div>
+                        </div>
+                    </div>
+
+                    <!-- 定义地图板块的颜色 -->
+                    <div class="softeem-map-demo">
+                        <div class="softeem-map-color-demo" style="background-color: #660208;"></div>
+                        <span class="softeem-map-num"> >=10000</span><br/>
+                        <div class="softeem-map-color-demo" style="background-color: #DE512F;"></div>
+                        <span class="softeem-map-num"> 1000-9999</span><br/>
+                        <div class="softeem-map-color-demo" style="background-color: #E7856D;"></div>
+                        <span class="softeem-map-num"> 500-999</span><br/>
+                        <div class="softeem-map-color-demo" style="background-color: #FDB19B;"></div>
+                        <span class="softeem-map-num"> 100-499</span><br/>
+                        <div class="softeem-map-color-demo" style="background-color: #FFE6DA;"></div>
+                        <span class="softeem-map-num"> 10-99</span><br/>
+                        <div class="softeem-map-color-demo" style="background-color: #FFF4EF;"></div>
+                        <span class="softeem-map-num"> 1-9</span><br/>
+                        <div class="softeem-map-color-demo"
+                             style="background-color: #fff;border: 1px solid lightgray;"></div>
+                        <span class="softeem-map-num"> 0</span><br/>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="layui-tab-item">
+                <div style="text-align: right;">
+                    <input type="text" pattern="请输入需要验证" class="layui-input"/>
+                    <button id="selectBtn" class="layui-btn">查 询</button>
+                </div>
+                <div class="softeem-rumor-content">
+                    <!-- 每一条新闻 -->
+                    <div class="softeem-rumor-item">
+                        <div class="softeem-rumor-content-true">谣言</div>
+                        <div class="softeem-rumor-out">
+                            <div class="softeem-runmor-title">5G是新冠病毒的元凶，没有5G就不会爆发疫情</div>
+                            <div class="softeem-runmor-time">2020-04-11</div>
+                            <div class="softeem-runmor-desc">详情。。。。。</div>
+                        </div>
+                        <img class="softeem-rumor-img" src="img/bj.jpg"/>
+                    </div>
+                    <!-- 每一条新闻 -->
+                    <div class="softeem-rumor-item">
+                        <div class="softeem-rumor-content-true">谣言</div>
+                        <div class="softeem-rumor-out">
+                            <div class="softeem-runmor-title">5G是新冠病毒的元凶，没有5G就不会爆发疫情</div>
+                            <div class="softeem-runmor-time">2020-04-11</div>
+                            <div class="softeem-runmor-desc">详情。。。。。</div>
+                        </div>
+                        <img class="softeem-rumor-img" src=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-tab-item">
+                <ul class="layui-timeline" id="newsData">
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">8月18日</h3>
+                            <p>
+                                layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
+                                <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
+                                <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">8月16日</h3>
+                            <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
+                            <ul>
+                                <li>《登高》</li>
+                                <li>《茅屋为秋风所破歌》</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 导入js -->
+<script src="js/jquery.js"></script>
+<!-- 导入地图接口  china.js   echarts.js-->
+<script src="js/map/echarts.min.js"></script>
+<script src="js/map/china.js"></script>
+<script src="static/layui/layui.js"></script>
+
+<script src="js/mapOption.js"></script>
+<script src="js/getData.js"></script>
+<!-- <script src="js/get-data.js"></script> -->
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+
+        //获取数据
+        initData();
+
+        //设置地图的点击事件，对于不同的标签，显示不同的地图数据  ul li
+        $(".softeem-map ul>li").click(function () {
+            //  alert("下标："+$(this).index());
+            var index = $(this).index();
+            cutMap(index);  // 调用不同数据的地图
+        });
+
+        // 疫情鉴别   、 疫情播报 点击事件    >:表示选取标签的子元素   父>子
+        $("#myul>li").click(function () {
+            // 获取当前index
+            var index = $(this).index();
+            if (index == 1) {
+                //鉴真疫情
+                getRumor();
+            } else if (index == 2) {
+                //疫情播报
+                f()
+            }
+        })
+
+    });
+</script>
+</body>
+
+</html>

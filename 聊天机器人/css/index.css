@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url(../img/nr.jpg);
+    background-repeat: no-repeat; /*尺寸不重复*/
+    background-size: 100%;
+    background-position: 20% 20%;
+}
+
+/*    设置header头部样式*/
+.header {
+    width: 700px;
+    margin: 0 auto; /*设置外边框自动剧中*/
+    padding-left: 20px;
+}
+
+.header a {
+    font-size: 20px;
+    color: #F2F2F2; /*设置字体颜色*/
+    font-weight: bolder; /*设置字体加粗*/
+    text-decoration: none; /*取消下划线*/
+}
+
+.contianer {
+    width: 700px;
+    margin: 0 auto;
+}
+/*显示消息*/
+.showMsg {
+    background-color: #ECEDEC;
+    height: 400px;
+    overflow: auto; /*内容超出范围,自动超出下拉框*/
+    border-radius: 5px; /*边框出现圆角*/
+    box-shadow: 2px 4px 10px #9F9F9F; /*给DIV设置元素的阴影[横坐标,纵坐标,焦距,颜色]*/
+    padding: 5px; /*设置内容与边框的距离*/
+    opacity: 0.8; /*设置透明度[0:完全透明-1:不透明]*/
+}
+/*消息样式*/
+.info {
+    background-color: #4E5465;
+    border-radius: 5px;
+    line-height: 30px;
+    /*height: 30px;*/
+    display: inline-block;/*行内块级元素*/
+    margin: 5px;
+    padding: 2px;
+}
+/*消息发送框样式*/
+.sendMsg{
+
+    background-color: #ECEDEC;
+    height: 100px;
+    margin-top: 10px;
+    border-radius: 5px; /*边框出现圆角*/
+    box-shadow: 2px 4px 10px #9F9F9F; /*给DIV设置元素的阴影[横坐标,纵坐标,焦距,颜色]*/
+    padding: 5px; /*设置内容与边框的距离*/
+    overflow: auto; /*内容超出范围,自动超出下拉框*/
+}
+.sendMsg textarea{
+    border-radius: 5px;
+    height: 6.8em;
+    width: 51.2em;
+    line-height: 30px;
+    border: none;/*按钮无边框*/
+    margin: 2px;
+    background-color: #9F9F9F;
+}
+/*消息发送按钮*/
+.btn button{
+    float: right;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+    background-color: #9F9F9F;
+    margin-top: 10px;
+}
